@@ -3,6 +3,7 @@ const merge = require("webpack-merge");
 var BrotliPlugin = require("brotli-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 
+//if don't want compressed output remove all plugins
 module.exports = merge(baseConfig, {
   mode: "production",
   plugins: [
