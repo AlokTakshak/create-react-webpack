@@ -6,10 +6,11 @@ const path = require("path");
 module.exports = merge(baseConfig, {
   mode: "development",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "public"),
     compress: true,
     open: true,
-    port: process.env.PORT
+    port: process.env.PORT,
+    publicPath: "/"
   },
   devtool: "source-map"
 });

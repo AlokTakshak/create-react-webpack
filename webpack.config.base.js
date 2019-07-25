@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+var ManifestPlugin = require("webpack-manifest-plugin");
 const path = require("path");
 
 module.exports = {
@@ -25,6 +26,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html"
+    }),
+    new ManifestPlugin({
+      fileName: "asset-manifest.json",
+      publicPath: "/",
+      basePath: "public/",
+      writeToFileEmit: true,
+      generate: (seed, files) => {
+        const manifestFiles = files.reduce(function(manifest, file) {
+          manifest[file.name] = file.path;
+          return manifest;
+        }, seed);
+
+        return {
+          files: manifestFiles
+        };
+      }
     })
   ]
 };
