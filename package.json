@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AlokTakshak/create-react-webpack/issues"
   },
-  "homepage": "https://github.com/AlokTakshak/create-react-webpack#readme"
+  "homepage": "https://github.com/AlokTakshak/create-react-webpack#readme",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  }
 }

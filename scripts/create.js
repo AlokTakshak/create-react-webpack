@@ -1,32 +1,24 @@
 const fs = require("fs");
 const path = require("path");
-const { copyFile } = require("./helper");
-console.log("inside");
+const { copyDirectory } = require("./helper");
+const { SPECIALCHAR, TEMPLATE_PATH } = require("./constants");
 
 var args = process.argv.slice(2);
 var dirName = args[0];
-var specialChar = RegExp("/[!@#$%^&*()-=_,.?~:;\\{}|<>]/g");
-console.log();
+
+//use process.cwd if after deployment also path take path of scripts folder
+
 if (dirName[0].match("^[A-Z0-9]")) {
   throw new Error(
-    "directory name can't start from capital letters or contain special characters in it"
+    chalk.bold.red("directory name can't start from capital letters ")
   );
-} else if (dirName.match(specialChar)) {
+} else if (dirName.match(SPECIALCHAR)) {
   throw new Error(
-    "directory name can't start from capital letters or contain special characters in it"
+    chalk.bold.red(
+      "directory name can't start from capital letters or contain special characters in it"
+    )
   );
 } else {
-  console.log("yes you can create the diretory");
-  //   var dirPath = path.join(__dirname + "/" + args[0]);
-  //   if (fs.existsSync(dirPath)) {
-  //     console.log("yes this file exits", dirPath);
-  //   } else {
-  //     fs.mkdirSync(dirPath, err => {
-  //       if (err) {
-  //         throw err;
-  //       } else {
-  //         console.log("created");
-  //       }
-  //     });
-  //   }
+  let destination = path.join(process.cwd() + "/" + args[0]);
+  copyDirectory(TEMPLATE_PATH, destination);
 }
