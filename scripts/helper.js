@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const { UNNECESSORYFOLDERS } = require("./constants");
 
 /**
- *@summary copies the directory content from source to destination directory
+ * @summary copies the directory content from source to destination directory
  * @param {String} source path of source file
  * @param {String} destination  path of destination file
  */
@@ -35,18 +35,24 @@ function copyDirectory(source, destination) {
 }
 
 /**
- *@summary copies the file content from source to destination file
+ * @summary copies the file content from source to destination file
  * @param {String} source path of source file
  * @param {String} destination  path of destination file
  */
 function copyFile(source, destination) {
-  var inputFile = fs.createReadStream(source);
-  var outputFile = fs.createWriteStream(destination);
-  inputFile.pipe(outputFile);
+  var inputFile, outputFile;
+  if (source.match(".json$")) {
+    inputFile = JSON.parse(fs.readFileSync(source, "utf8"));
+    fs.writeFileSync(destination, JSON.stringify(inputFile, null, 2), "utf8");
+  } else {
+    inputFile = fs.createReadStream(source);
+    outputFile = fs.createWriteStream(destination);
+    inputFile.pipe(outputFile);
+  }
 }
 
 /**
- *
+ * Creates a directory from input
  * @param {String} destination path of destination directory
  */
 function createDirectory(destination) {
