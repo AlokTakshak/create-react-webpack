@@ -51,16 +51,24 @@ function copyFile(source, destination) {
  */
 function createDirectory(destination) {
   if (fs.existsSync(destination)) {
-    throw new Error(chalk.bold.red("Directory Already Exists!"));
+    throw new Error(ErrorMessage("Directory Already Exists!"));
   } else {
-    fs.mkdirSync(destination, error => {
-      if (error) {
-        throw error;
-      } else {
-        console.log(chalk.bold.green("Successfully created the directory"));
-      }
-    });
+    fs.mkdirSync(destination);
   }
 }
 
-module.exports = { copyDirectory, copyFile, createDirectory };
+function ErrorMessage(message) {
+  return chalk.bold.red(message);
+}
+
+function SuccessMessage(message) {
+  return chalk.bold.green(message);
+}
+
+module.exports = {
+  copyDirectory,
+  copyFile,
+  createDirectory,
+  ErrorMessage,
+  SuccessMessage
+};
