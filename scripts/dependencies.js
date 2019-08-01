@@ -1,5 +1,4 @@
 const child_process = require("child_process");
-const { SuccessMessage } = require("./helper");
 
 const DEPENDENCIES = ["prop-types", "react", "react-dom", "react-hot-loader"];
 const DEV_DEPENDENCIES = [
@@ -58,13 +57,10 @@ function getDevDependencies() {
  */
 function installDependencies(commands, options) {
   options.stdio = options.stdio || "inherit";
-  //cleaning the npm cache
-  child_process.execSync("npm cache clean  --force", options);
 
   if (commands) {
     try {
       commands.forEach(command => {
-        console.log(SuccessMessage(command));
         child_process.execSync(command, options);
       });
     } catch (error) {

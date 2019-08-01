@@ -1,6 +1,6 @@
 const path = require("path");
 const { copyDirectory, ErrorMessage, SuccessMessage } = require("./helper");
-const { SPECIALCHAR, TEMPLATE_PATH } = require("./constants");
+const { CLEAN_NPM_CACHE, SPECIALCHAR, TEMPLATE_PATH } = require("./constants");
 const {
   installDependencies,
   getDependencies,
@@ -28,6 +28,7 @@ if (dirName[0].match("^[A-Z0-9]")) {
   let commands = [],
     options;
 
+  commands.push(CLEAN_NPM_CACHE);
   commands.push(getDependencies());
   commands.push(getDevDependencies());
   options = { cwd: destination, stdio: "inherit" };
