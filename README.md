@@ -2,6 +2,41 @@
 
 Create React Application with all standard practices, with easy formats known to users, so that users can easily modify the various config files.
 
+## Creating an App
+
+### npm
+
+```
+npm create-react-webpack demo-app
+```
+
+it will create a directory `demo-app` in the current folder, with below file footprint.
+
+```
+demo-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── .babelrc
+├── .eslintrc.json
+├── .eslintignore
+├── .prettierrc
+├── .prettierignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.spec.js
+│   └── index.js
+├── webpack.config.base.js
+├── webpack.config.dev.js
+└── webpack.config.prod.js
+```
+
 ## Available Scripts
 
 After creating project directory you can run following scripts:-
