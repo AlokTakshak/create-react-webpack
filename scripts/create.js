@@ -1,6 +1,6 @@
 const path = require("path");
 const { copyDirectory, ErrorMessage, SuccessMessage } = require("./helper");
-const { CLEAN_NPM_CACHE, SPECIALCHAR, TEMPLATE_PATH } = require("./constants");
+const { CLEAN_NPM_CACHE, SPECIALCHAR } = require("./constants");
 const {
   installDependencies,
   getDependencies,
@@ -22,6 +22,7 @@ if (dirName[0].match("^[A-Z0-9]")) {
   );
 } else {
   //using process.cwd for getting current path
+  const TEMPLATE_PATH = path.join(__dirname, "../template");
   let destination = path.join(process.cwd() + "/" + args[0]);
   copyDirectory(TEMPLATE_PATH, destination);
 
