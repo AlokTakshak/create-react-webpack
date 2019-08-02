@@ -1,14 +1,24 @@
 # create-react-webpack
 
-Create React Application with all standard practices, with easy formats known to users, so that users can easily modify the various config files.
+Create React Application with all standard practices, with easy formats which is known to users, so that users can easily modify the various config files as needed.
 
 ## Creating an App
 
 ### npm
 
+### install module
+
 ```
-npm create-react-webpack demo-app
+npm i -g create-react-webpack
 ```
+
+### creating your react app
+
+```
+create-react-webpack demo-app
+```
+
+Once installed globally, above command i.e `create-react-webpack` for bootstraping new application will be available through out the system.
 
 it will create a directory `demo-app` in the current folder, with below file footprint.
 
