@@ -1,9 +1,14 @@
 const CLEAN_NPM_CACHE = "npm cache clean  --force";
 const SPECIALCHAR = RegExp("/[!@#$%^&*()-=_,.?~:;\\{}|<>]/g");
-const UNNECESSORYFOLDERS = RegExp("^node_modules|build|dist$", "i");
+const UNNECESSORY_FOLDERS_FOR_DEV = RegExp(
+  "^node_modules|build|dist|server$",
+  "i"
+);
+const UNNECESSORY_FOLDERS_FOR_PROD = RegExp("^node_modules|build|dist$", "i");
 
 module.exports = {
   CLEAN_NPM_CACHE,
   SPECIALCHAR,
-  UNNECESSORYFOLDERS
+  UNNECESSORY_FOLDERS_FOR_DEV,
+  UNNECESSORY_FOLDERS_FOR_PROD
 };

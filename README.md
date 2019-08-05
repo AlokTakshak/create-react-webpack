@@ -47,6 +47,39 @@ demo-app
 └── webpack.config.prod.js
 ```
 
+```
+create-react-webpack demo-app -e
+```
+
+It incules the node server for deploying into production into your `demo-app`, with below file footprint.
+
+```
+demo-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── .babelrc
+├── .eslintrc.json
+├── .eslintignore
+├── .prettierrc
+├── .prettierignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+├── server
+│   └── index.js
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.spec.js
+│   └── index.js
+├── webpack.config.base.js
+├── webpack.config.dev.js
+└── webpack.config.prod.js
+```
+
 ## Available Scripts
 
 After creating project directory you can run following scripts:-
@@ -55,6 +88,11 @@ After creating project directory you can run following scripts:-
 
 builds the application for production to the `dist` folder inside directory.<br>
 Uses webpack `prod` `config` along with `base` `config`
+
+### `npm start`
+
+Start the production server on default port `3000`.<br>
+Read files from `dist` folder.
 
 ### `npm run dev`
 
