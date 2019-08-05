@@ -25,6 +25,7 @@ const DEV_DEPENDENCIES = [
   "webpack-manifest-plugin",
   "webpack-merge"
 ];
+const PROD_DEPENDENCIES = ["express", "express-static-gzip"];
 
 /**
  * Returns npm command for installing dependencies
@@ -43,6 +44,17 @@ function getDependencies() {
 function getDevDependencies() {
   var installCommand = "npm install --save-dev";
   DEV_DEPENDENCIES.forEach(dependency => {
+    installCommand += ` ${dependency} `;
+  });
+  return installCommand;
+}
+
+/**
+ * Returns npm command for installing  prod dependencies
+ */
+function getProdDependencies() {
+  var installCommand = "npm install --save";
+  PROD_DEPENDENCIES.forEach(dependency => {
     installCommand += ` ${dependency} `;
   });
   return installCommand;
@@ -69,4 +81,9 @@ function installDependencies(commands, options) {
   }
 }
 
-module.exports = { installDependencies, getDependencies, getDevDependencies };
+module.exports = {
+  installDependencies,
+  getDependencies,
+  getDevDependencies,
+  getProdDependencies
+};

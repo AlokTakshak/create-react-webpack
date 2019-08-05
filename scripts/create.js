@@ -4,11 +4,13 @@ const { CLEAN_NPM_CACHE, SPECIALCHAR } = require("./constants");
 const {
   installDependencies,
   getDependencies,
-  getDevDependencies
+  getDevDependencies,
+  getProdDependencies
 } = require("./dependencies");
 
 var args = process.argv.slice(2);
 var dirName = args[0];
+var end_to_end = args[1];
 
 if (dirName[0].match("^[A-Z0-9]")) {
   throw new Error(
@@ -24,14 +26,18 @@ if (dirName[0].match("^[A-Z0-9]")) {
   //using process.cwd for getting current path
   const TEMPLATE_PATH = path.join(__dirname, "../template");
   let destination = path.join(process.cwd() + "/" + args[0]);
-  copyDirectory(TEMPLATE_PATH, destination);
+  const prod = end_to_end == "-e";
+
+  copyDirectory(TEMPLATE_PATH, destination, prod);
 
   let commands = [],
     options;
 
   commands.push(CLEAN_NPM_CACHE);
   commands.push(getDependencies());
+  prod && commands.push(getProdDependencies());
   commands.push(getDevDependencies());
+
   options = { cwd: destination, stdio: "inherit" };
 
   installDependencies(commands, options);

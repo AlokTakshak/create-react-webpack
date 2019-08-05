@@ -1,26 +1,35 @@
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
-const { UNNECESSORYFOLDERS } = require("./constants");
+const {
+  UNNECESSORY_FOLDERS_FOR_DEV,
+  UNNECESSORY_FOLDERS_FOR_PROD
+} = require("./constants");
 
 /**
  * @summary copies the directory content from source to destination directory
  * @param {String} source path of source file
  * @param {String} destination  path of destination file
+ * @param {boolean} prod  tells if user require prod environment
  */
-function copyDirectory(source, destination) {
+function copyDirectory(source, destination, prod) {
+  let UNNECESSORY_FOLDERS = prod
+    ? UNNECESSORY_FOLDERS_FOR_PROD
+    : UNNECESSORY_FOLDERS_FOR_DEV;
+
   createDirectory(destination);
 
   var content = fs.readdirSync(source);
   for (let i = 0; i < content.length; i++) {
     let currentFile = fs.lstatSync(path.join(source, content[i]));
 
-    if (String(content[i]).match(UNNECESSORYFOLDERS)) {
+    if (String(content[i]).match(UNNECESSORY_FOLDERS)) {
       continue;
     } else if (currentFile.isDirectory()) {
       copyDirectory(
         path.join(source, content[i]),
-        path.join(destination, content[i])
+        path.join(destination, content[i]),
+        prod
       );
     } else if (currentFile.isSymbolicLink()) {
       var symlink = fs.readlinkSync(source, content[i]);
@@ -28,7 +37,8 @@ function copyDirectory(source, destination) {
     } else {
       copyFile(
         path.join(source, content[i]),
-        path.join(destination, content[i])
+        path.join(destination, content[i]),
+        prod
       );
     }
   }
@@ -38,11 +48,15 @@ function copyDirectory(source, destination) {
  * @summary copies the file content from source to destination file
  * @param {String} source path of source file
  * @param {String} destination  path of destination file
+ * @param {boolean} prod  tells if user require prod environment
  */
-function copyFile(source, destination) {
+function copyFile(source, destination, prod) {
   var inputFile, outputFile;
   if (source.match(".json$")) {
     inputFile = JSON.parse(fs.readFileSync(source, "utf8"));
+    if (prod && source.match("package.json$")) {
+      inputFile.scripts.start = "node server/";
+    }
     fs.writeFileSync(destination, JSON.stringify(inputFile, null, 2), "utf8");
   } else {
     inputFile = fs.createReadStream(source);

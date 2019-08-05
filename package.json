@@ -1,6 +1,6 @@
 {
   "name": "create-react-webpack",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "create-react-webpack ",
   "main": "scripts/create.js",
   "bin": {
@@ -14,6 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/AlokTakshak/create-react-webpack.git"
   },
+  "keywords": [
+    "React",
+    "Webpack"
+  ],
   "author": "Alok Takshak",
   "license": "ISC",
   "bugs": {

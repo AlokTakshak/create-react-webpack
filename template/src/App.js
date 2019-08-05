@@ -12,23 +12,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <h1>Hello World!</h1>
         <h2>{`Count : ${this.state.count}`}</h2>
-        <button
-          onClick={() => {
-            this.setState(state => ({ count: state.count + 1 }));
-          }}
-        >
-          +
-        </button>
-        <button
-          onClick={() => {
-            this.setState(state => ({ count: state.count - 1 }));
-          }}
-        >
-          -
-        </button>
+        <div>
+          <button
+            className="button"
+            onClick={() => {
+              this.setState(state => ({ count: state.count + 1 }));
+            }}
+          >
+            +
+          </button>
+          <button
+            className="button"
+            onClick={() => {
+              this.setState(state => ({ count: state.count - 1 }));
+            }}
+          >
+            -
+          </button>
+        </div>
       </div>
     );
   }

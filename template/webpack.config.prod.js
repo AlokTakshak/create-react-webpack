@@ -8,10 +8,9 @@ module.exports = merge(baseConfig, {
   mode: "production",
   plugins: [
     new CompressionPlugin({
-      filename: "[path].br[query]",
-      algorithm: "brotliCompress",
+      filename: "[path].gz[query]",
+      algorithm: "gzip",
       test: /\.(js|css|html|svg)$/,
-      compressionOptions: { level: 11 },
       threshold: 10240,
       minRatio: 0.8,
       deleteOriginalAssets: false
