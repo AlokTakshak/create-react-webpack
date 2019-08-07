@@ -2,6 +2,12 @@
 
 const path = require("path");
 const child_process = require("child_process");
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
+
+const notifier = updateNotifier({pkg});
+notifier.notify();
+console.log(notifier.update)
 
 var args = process.argv.slice(2);
 var dirName = args[0];

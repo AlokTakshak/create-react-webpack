@@ -51,7 +51,7 @@ demo-app
 create-react-webpack demo-app -e
 ```
 
-It incules the node server for deploying into production into your `demo-app`, with below file footprint.
+It `includes` the `node server` for deploying `into` production into your `demo-app`, with below file footprint.
 
 ```
 demo-app
@@ -92,7 +92,8 @@ Uses webpack `prod` `config` along with `base` `config`
 ### `npm start`
 
 Start the production server on default port `3000`.<br>
-Read files from `dist` folder.
+Read files from `dist` folder.<br>
+before running this first run `npm run build`.
 
 ### `npm run dev`
 
