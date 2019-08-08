@@ -7,7 +7,7 @@ const pkg = require('./package.json');
 
 const notifier = updateNotifier({pkg});
 notifier.notify();
-console.log(notifier.update)
+notifier.update && console.log(notifier.update)
 
 var args = process.argv.slice(2);
 var dirName = args[0];
