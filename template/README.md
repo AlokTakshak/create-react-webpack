@@ -6,6 +6,13 @@ This project is bootstraped with [create-react-webpack](https://github.com/AlokT
 
 Scripts available inside this project:-
 
+### `npm start`
+
+if you have initalized by passing `-e` option to `create-react-webpack`. <br>
+Start the production server on default port `3000`.<br>
+Read files from `dist` folder.<br>
+before running this first run `npm run build`.
+
 ### `npm run build`
 
 builds the application for production to the `dist` folder inside directory.<br>
