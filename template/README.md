@@ -28,6 +28,12 @@ Starts server in hot mode but doesn't preserve state of component if any while r
 Start the development server on default port `8080`.<br>
 Starts server in hot mode preserves state of component also if any while applying hot load patch.
 
+### `npm run docker:dev`
+
+Start the development server inside the docker container.<br>
+Maps machines port `8080` to `docker` container port `8080`.<br>
+Helpful in case you want to do development inside container keeping the environment same for everyone, removes the need for changing node version for different applications.
+
 ### `npm test`
 
 Launches Test Runner in the intreactive manner.
