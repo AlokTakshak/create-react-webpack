@@ -33,6 +33,10 @@ demo-app
 ├── .eslintignore
 ├── .prettierrc
 ├── .prettierignore
+├── docker
+│   ├── dev.js
+│   ├── docker-compose.yml
+│   └── Dockerfile.dev
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
@@ -64,6 +68,10 @@ demo-app
 ├── .eslintignore
 ├── .prettierrc
 ├── .prettierignore
+├── docker
+│   ├── dev.js
+│   ├── docker-compose.yml
+│   └── Dockerfile.dev
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
@@ -99,6 +107,12 @@ before running this first run `npm run build`.
 
 Start the development server on default port `8080`.<br>
 Starts server in hot mode but doesn't preserve state of component if any while reloading.
+
+### `npm run docker:dev`
+
+Start the development server inside the docker container.<br>
+Maps machines port `8080` to `docker` container port `8080`.<br>
+Helpful in case you want to do development inside container keeping the environment same for everyone, removes the need for changing node version for different applications.
 
 ### `npm run dev:hot`
 
