@@ -12,7 +12,9 @@ var args = process.argv.slice(2);
 var dirName = args[0];
 var end_to_end = args[1];
 
-if (dirName[0].match("^[A-Z0-9]")) {
+if (dirName === "undefined") {
+  throw new Error(ErrorMessage("directory name can't be empty"));
+} else if (dirName[0].match("^[A-Z0-9]")) {
   throw new Error(
     ErrorMessage("directory name can't start from capital letters ")
   );
