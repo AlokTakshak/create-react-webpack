@@ -1,6 +1,6 @@
 {
   "name": "create-react-webpack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "create-react-webpack ",
   "main": "scripts/create.js",
   "bin": {
