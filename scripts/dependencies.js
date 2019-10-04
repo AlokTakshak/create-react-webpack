@@ -13,6 +13,7 @@ const DEV_DEPENDENCIES = [
   "css-loader",
   "eslint",
   "eslint-plugin-react",
+  "file-loader",
   "html-webpack-plugin",
   "husky",
   "jest",
