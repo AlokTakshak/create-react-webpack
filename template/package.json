@@ -9,7 +9,7 @@
     "dev:hot": "npm run dev -- --hot",
     "docker:dev": "node docker/dev.js",
     "test": "jest",
-    "format": "pretty-quick",
+    "format": "prettier --write \"./**/*.{js,jsx,json}\"",
     "lint": "eslint ./"
   },
   "husky": {
