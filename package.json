@@ -1,31 +1,40 @@
 {
-  "name": "create-react-webpack",
-  "version": "0.1.2",
-  "description": "create-react-webpack ",
-  "main": "scripts/create.js",
-  "bin": {
-    "create-react-webpack": "./start.js"
-  },
-  "preferGlobal": true,
-  "scripts": {
-    "create-react-webpack": "node scripts/create.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlokTakshak/create-react-webpack.git"
-  },
-  "keywords": [
-    "React",
-    "Webpack"
-  ],
-  "author": "Alok Takshak",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlokTakshak/create-react-webpack/issues"
-  },
-  "homepage": "https://github.com/AlokTakshak/create-react-webpack#readme",
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "update-notifier": "^3.0.1"
-  }
+	"name": "create-react-webpack",
+	"version": "0.1.3",
+	"description": "create-react-webpack ",
+	"main": "scripts/create.js",
+	"bin": {
+		"create-react-webpack": "./start.js"
+	},
+	"preferGlobal": true,
+	"scripts": {
+		"create-react-webpack": "node scripts/create.js",
+		"format": "prettier --write \"./**/*.{js,jsx,json}\""
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlokTakshak/create-react-webpack.git"
+	},
+	"keywords": [
+		"React",
+		"Webpack"
+	],
+	"author": "Alok Takshak",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AlokTakshak/create-react-webpack/issues"
+	},
+	"homepage": "https://github.com/AlokTakshak/create-react-webpack#readme",
+	"dependencies": {
+		"chalk": "^2.4.2",
+		"husky": "^3.1.0",
+		"prettier": "^1.19.1",
+		"pretty-quick": "^2.0.1",
+		"update-notifier": "^3.0.1"
+	}
 }
